@@ -26,16 +26,24 @@ function Login() {
         .get('http://localhost:4000/users')
         .then((response) => {
           const user = response.data.find(
-            (user) => user.name === values.name && user.password === values.password
-          );
+            (user) => user.name === values.name && user.password === values.password);
           if (user) {
             localStorage.setItem('id', user.id);
             localStorage.setItem('name', user.name); 
-            navigate('/');
-          } else {
-            setLoginError('Invalid username or password');
+            
+           
+            if(user.isAdmin){
+              navigate('/dashboard')
+            }else{
+              navigate('/');
+            }
           }
+          else{
+              setLoginError('Invalid username or password')
+          }
+          
         })
+        
         .catch((err) => {
           console.error('Error fetching users:', err);
           setLoginError('An error occurred. Please try again.');
@@ -43,6 +51,8 @@ function Login() {
         .finally(() => {
           setIsSubmitting(false); 
         });
+
+        
     },
   });
 
@@ -92,8 +102,7 @@ function Login() {
         <button
           type="submit"
           className="w-full py-3 mt-4 text-white font-semibold bg-amber-500 rounded-md hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-500"
-          disabled={isSubmitting} 
-        >
+          disabled={isSubmitting}>
           {isSubmitting ? 'Logging in...' : 'Login'}
         </button>
 
@@ -107,7 +116,7 @@ function Login() {
             <span
               className="text-amber-500 hover:underline cursor-pointer"
               onClick={() => navigate('/signup')}
-            >
+         >
               Register
             </span>
           </p>

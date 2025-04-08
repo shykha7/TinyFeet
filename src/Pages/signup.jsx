@@ -29,7 +29,8 @@ const SignUp = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      confirmPassword: ''
+     
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -40,6 +41,8 @@ const SignUp = () => {
           email: values.email,
           password: values.password,
           cart: [],
+          isAdmin:false,
+           status: "Active"
         })
         .then(() => {
           // Redirect or show a success message after successful submission

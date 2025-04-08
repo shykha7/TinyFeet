@@ -9,6 +9,12 @@ import Cart from "./Pages/Cart";
 import Payment from "./Pages/Payment";
 import Orderhistory from "./Pages/Orderhistory";
 import { ToastContainer } from "react-toastify";
+import Dashboard from "./Admin/Dashboard";
+import Products from "./Admin/Products";
+import Users from "./Admin/Users";
+
+
+
 
 function App() {
   return (
@@ -22,6 +28,10 @@ function App() {
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/payment/:id" element={<Payment/>}></Route>
       <Route path="/orderhistory" element={<Orderhistory/>}></Route>
+      <Route path="/dashboard" element={<Dashboard/>}></Route>
+      <Route path="/admin/products" element={<Products/>}/>
+      <Route path="/admin/users" element={<Users/>}/>
+      
     </Routes>
     <ToastContainer/>
     </>
