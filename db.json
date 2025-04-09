@@ -1,0 +1,171 @@
+{
+  "users": [
+    {
+      "id": "485b",
+      "name": "shaikha",
+      "email": "shyyykhaaa@gmail.com",
+      "password": "1234567",
+      "cart": [],
+      "isAdmin": false,
+      "status": "Active"
+    },
+    {
+      "id": "9574",
+      "name": "jasil",
+      "email": "jasil@gmail.com",
+      "password": "1234567",
+      "cart": [
+        {
+          "id": "3",
+          "name": "Penguin Toy",
+          "description": "The Penguin Toy is a cute, soft plush that’s perfect for cuddling and play. Its adorable design makes it a fun companion for little ones..",
+          "price": 10.99,
+          "category": "toy",
+          "image_url": "/product-14toy.jpg",
+          "quantity": 1
+        }
+      ],
+      "isAdmin": false,
+      "status": "blocked"
+    },
+    {
+      "id": "49b6",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "adminpassword",
+      "cart": [],
+      "isAdmin": true,
+      "status": "Active"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "round-stacking-tower-toy",
+      "description": "The Round Stacking Tower Toy is a colorful toy that helps toddlers develop motor skills by stacking smooth, safe discs. Perfect for little hands!",
+      "price": 10.99,
+      "category": "toy",
+      "image_url": "/product-11toy.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "3",
+      "name": "Penguin Toy",
+      "description": "The Penguin Toy is a cute, soft plush that’s perfect for cuddling and play. Its adorable design makes it a fun companion for little ones..",
+      "price": 10.99,
+      "category": "toy",
+      "image_url": "/product-14toy.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "4",
+      "name": "Mobile bear",
+      "description": "The Mobile Bear is a cute, hanging toy designed to entertain and soothe babies. Its soft, gentle design and moving parts make it perfect for cribs or strollers..",
+      "price": 22.99,
+      "category": "toy",
+      "image_url": "/product-12toy.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "5",
+      "name": "Baby Girl Dress",
+      "description": "A perfect Bow Dress. Made from soft fabric, it features a fun design and easy-to-use snaps, making dressing quick and simple for both baby and parent.",
+      "price": 32.99,
+      "category": "clothing",
+      "image_url": "/product-1dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "6",
+      "name": "Baby Girl Dress with hat",
+      "description": "The Baby Girl Dress with Hat is a soft, stylish outfit featuring a cute dress and matching hat, perfect for Summer.",
+      "price": 21.99,
+      "category": "clothing",
+      "image_url": "/product-6dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "7",
+      "name": "Baby boy Outfit",
+      "description": "The Baby Boy Outfit is a comfy and stylish set, perfect for everyday wear. Made from soft fabrics, it ensures comfort while keeping your little one looking cute.",
+      "price": 25.99,
+      "category": "clothing",
+      "image_url": "/product-5dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "8",
+      "name": "Striped Tee & Tourser",
+      "description": "The Striped Tee & Trousers set is a stylish and comfortable outfit for kids. The soft striped tee pairs perfectly with the comfy trousers, making it ideal for casual play or outings.",
+      "price": 31.99,
+      "category": "clothing",
+      "image_url": "/product-2dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "9",
+      "name": "Baby Girl Dress",
+      "description": "The Baby Girl Dress in beige features a cute printed design, offering a soft and comfortable fit.It’s both stylish and gentle on your little one’s skin.",
+      "price": 20.99,
+      "category": "clothing",
+      "image_url": "/product-4dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "10",
+      "name": "Baby Boy striped jersey and chino shorts set",
+      "description": "he Baby Boy Striped Jersey and Chino Shorts Set is a stylish and comfy outfit. The soft striped jersey pairs with casual chino shorts, perfect for warm weather and everyday play.",
+      "price": 32.99,
+      "category": "clothing",
+      "image_url": "/product-3dress.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "11",
+      "name": "Silicone Pacifier",
+      "description": "The Silicone Pacifier is a soft, safe, and durable pacifier designed for babies. Made from high-quality silicone, it soothes and comforts little ones while being gentle on their delicate skin.",
+      "price": 5.99,
+      "category": "kids accessories",
+      "image_url": "/product-8musthave.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "12",
+      "name": "Baby Stroller",
+      "description": "The Baby Stroller in Beige is a sleek and sturdy designed for easy maneuverability. It features a lightweight frame, adjustable seat, making it perfect for daily outings with your little one.",
+      "price": 65.99,
+      "category": "kids accessories",
+      "image_url": "/product-9musthave.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "13",
+      "name": "Silicone Baby Bottle",
+      "description": "A soft, BPA-free silicone bottle that’s easy to use and clean. Perfect for your baby’s comfort and safety.",
+      "price": 23.99,
+      "category": "kids accessories",
+      "image_url": "/product-10musthave.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "14",
+      "name": "Reclining Foldable High Chair",
+      "description": "The Reclining Foldable High Chair is a comfortable and space-saving chair that reclines and folds for easy storage. Perfect for mealtime with your little one.",
+      "price": 61.99,
+      "category": "kids accessories",
+      "image_url": "/product-7musthave.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "247e",
+      "name": "Luna Romper",
+      "description": "comfy dress for babies",
+      "price": 23,
+      "category": "clothing",
+      "image_url": "\\Luna Romper 🤎.jpeg"
+    }
+  ],
+  "orderhistory": [
+  
+  ]
+}
