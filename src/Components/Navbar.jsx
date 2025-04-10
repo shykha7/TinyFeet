@@ -46,14 +46,7 @@ const Navbar = () => {
 
 
 
-    <div className="flex items-center border border-amber-300 rounded-full px-4 py-2">
-        <i className="fas fa-search text-amber-600 mr-2"></i>
-        <input
-          type="search"
-          placeholder="Search..."
-          className="outline-none text-gray-700"
-        />
-      </div>
+   
 
 
 

@@ -1,53 +1,72 @@
 {
   "users": [
     {
-      "id": "485b",
-      "name": "shaikha",
-      "email": "shyyykhaaa@gmail.com",
-      "password": "1234567",
-      "cart": [],
-      "isAdmin": false,
-      "status": "Active"
-    },
-    {
-      "id": "9574",
-      "name": "jasil",
-      "email": "jasil@gmail.com",
-      "password": "1234567",
-      "cart": [
-        {
-          "id": "3",
-          "name": "Penguin Toy",
-          "description": "The Penguin Toy is a cute, soft plush that’s perfect for cuddling and play. Its adorable design makes it a fun companion for little ones..",
-          "price": 10.99,
-          "category": "toy",
-          "image_url": "/product-14toy.jpg",
-          "quantity": 1
-        }
-      ],
-      "isAdmin": false,
-      "status": "blocked"
-    },
-    {
       "id": "49b6",
       "name": "admin",
       "email": "admin@gmail.com",
       "password": "adminpassword",
       "cart": [],
       "isAdmin": true,
+      "status": true
+    },
+    {
+      "id": "ed4c",
+      "name": "Alan",
+      "email": "alan@gmail.com",
+      "password": "alanpassword",
+      "cart": [],
+      "isAdmin": false,
+      "status": false
+    },
+    {
+      "id": "704f",
+      "name": "jasil",
+      "email": "jasil@gmail.com",
+      "password": "1234567",
+      "cart": [
+        {
+          "id": "5",
+          "name": "Baby Girl Dress",
+          "description": "A perfect Bow Dress. Made from soft fabric, it features a fun design and easy-to-use snaps, making dressing quick and simple for both baby and parent.",
+          "price": 32.99,
+          "category": "clothing",
+          "image_url": "/product-1dress.jpg",
+          "quantity": 6
+        }
+      ],
+      "isAdmin": false,
+      "status": true
+    },
+    {
+      "id": "540b",
+      "name": "salih",
+      "email": "salih@gmail.com",
+      "password": "1234567",
+      "cart": [],
+      "isAdmin": false,
+      "status": "Active"
+    },
+    {
+      "id": "9607",
+      "name": "shaikha",
+      "email": "shaikha@gmail.com",
+      "password": "123456",
+      "cart": [
+        {
+          "id": "12",
+          "name": "Baby Stroller",
+          "description": "The Baby Stroller in Beige is a sleek and sturdy designed for easy maneuverability. It features a lightweight frame, adjustable seat, making it perfect for daily outings with your little one.",
+          "price": 65.99,
+          "category": "kids accessories",
+          "image_url": "/product-9musthave.jpg",
+          "quantity": 1
+        }
+      ],
+      "isAdmin": false,
       "status": "Active"
     }
   ],
   "products": [
-    {
-      "id": "1",
-      "name": "round-stacking-tower-toy",
-      "description": "The Round Stacking Tower Toy is a colorful toy that helps toddlers develop motor skills by stacking smooth, safe discs. Perfect for little hands!",
-      "price": 10.99,
-      "category": "toy",
-      "image_url": "/product-11toy.jpg",
-      "quantity": 1
-    },
     {
       "id": "3",
       "name": "Penguin Toy",
@@ -55,6 +74,15 @@
       "price": 10.99,
       "category": "toy",
       "image_url": "/product-14toy.jpg",
+      "quantity": 1
+    },
+    {
+      "id": "4",
+      "name": "Mobile bear",
+      "description": "The Mobile Bear is a cute, hanging toy designed to entertain and soothe babies. Its soft, gentle design and moving parts make it perfect for cribs or strollers..",
+      "price": 22.99,
+      "category": "toy",
+      "image_url": "/product-11toy.jpg",
       "quantity": 1
     },
     {
@@ -155,17 +183,7 @@
       "category": "kids accessories",
       "image_url": "/product-7musthave.jpg",
       "quantity": 1
-    },
-    {
-      "id": "247e",
-      "name": "Luna Romper",
-      "description": "comfy dress for babies",
-      "price": 23,
-      "category": "clothing",
-      "image_url": "\\Luna Romper 🤎.jpeg"
     }
   ],
-  "orderhistory": [
-  
-  ]
+  "orderhistory": []
 }

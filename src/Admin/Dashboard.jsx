@@ -33,7 +33,7 @@ function Dashboard() {
 
   
   const activeUsers = users.filter(u => u.status === 'Active').length;
-  const blockedUsers = users.filter(u => u.status === 'blocked').length;
+  const blockedUsers = users.filter(u => u.status === false).length;
 
   const userData = [
     { name: 'Active Users', value: activeUsers },

@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const [activeView, setActiveView] = useState('list'); // 'list', 'add', 'edit'
+  const [activeView, setActiveView] = useState('list');  // 'list', 'add', 'edit'
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Fetch products
@@ -30,8 +30,7 @@ function Products() {
       name: Yup.string().required('Product name is required'),
       category: Yup.string().required('Specify the category'),
       description: Yup.string().required('Description is required'),
-      amount: Yup.string().required('Amount is required'),
-      image: Yup.string().required('Image URL is required')
+      amount: Yup.string().required('Amount is required')
     }),
     onSubmit: (values) => {
       if (activeView === 'add') {

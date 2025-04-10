@@ -39,7 +39,20 @@ const ProductCard = () => {
   return (
 <div className="container mx-auto p-6 ">
   
+
+<div className="flex items-center justify-center px-4 py-2 border border-amber-300 rounded-xl w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-amber-600 ml-26 mb-6">
+        <i className="fas fa-search text-amber-600 mr-2"></i>
+        <input
+          type="search"
+          placeholder="Search..."
+          className="outline-none text-gray-700"
+        />
+      </div>
+
+
   <div className="max-w-screen-lg mx-auto ">
+
+
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
       {products.map((product) => (
         <div
