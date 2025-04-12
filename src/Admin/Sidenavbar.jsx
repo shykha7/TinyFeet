@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Home, Package, Users } from 'lucide-react';
 
 
 
 function Sidenavbar() {
- const handleLogout=()=>{
-  localStorage.removeItem('id')
-  window.location.reload()
- }
+
+  const navigate = useNavigate()
+
   
 
 
@@ -38,8 +37,8 @@ function Sidenavbar() {
             <span>Users</span>
           </Link>
 
-          <Link to="/login" className="flex items-center space-x-3 hover:bg-amber-100 p-2 rounded-md transition-colors">
-            <span className='text-red-500 text-xl' onClick={()=>{handleLogout}}>Logout</span>
+          <Link to="/" className="flex items-center space-x-3 hover:bg-amber-100 p-2 rounded-md transition-colors">
+            <span className='text-red-500 text-xl' onClick={()=>navigate('/')}>Back to Home</span>
           </Link>
         </nav>
       </div>

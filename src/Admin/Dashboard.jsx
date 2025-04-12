@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Sidenavbar from './Sidenavbar';
 import axios from 'axios';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { useNavigate } from 'react-router-dom';
+
 
 function Dashboard() {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
    
@@ -18,6 +21,21 @@ function Dashboard() {
       .then(res => setUsers(res.data))
       .catch(err => console.log('Error fetching users', err));
   }, []);
+
+useEffect(() => {
+  const userID = localStorage.getItem('id')
+
+  axios.get(`http://localhost:4000/users/${userID}`)
+  .then((Response) => {
+    const user = Response.data;
+    if(!user.isAdmin){
+      navigate('/')
+    }
+  })
+  .catch(() => {
+    navigate('/')
+  })
+},[navigate])
 
   const clothingCount = products.filter(p => p.category === 'clothing').length;
   const accessoriesCount = products.filter(p => p.category === 'kids accessories').length;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom"; 
 import { ToastContainer } from "react-toastify";
 import SignUp from "./Pages/signup";
@@ -12,14 +12,19 @@ import Orderhistory from "./Pages/Orderhistory";
 import Dashboard from "./Admin/Dashboard";
 import Products from "./Admin/Products";
 import Users from "./Admin/Users";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import { createContext } from "react";
 
 
 
-
+export const ContextCreate = createContext()
 
 function App() {
+const [conCart,setConcat] = useState(0)
+const ProviderValue = {conCart,setConcat}
   return (
     <>
+    <ContextCreate.Provider value={ProviderValue}>
     <Routes>
       <Route path="/" element={<Home/>}></Route>
       <Route path="/products" element={<ProductCard/>}></Route>
@@ -29,12 +34,13 @@ function App() {
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/payment/:id" element={<Payment/>}></Route>
       <Route path="/orderhistory" element={<Orderhistory/>}></Route>
-      <Route path="/dashboard" element={<Dashboard/>}></Route>
-      <Route path="/admin/products" element={<Products/>}/>
-      <Route path="/admin/users" element={<Users/>}/>
-    
-       
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute> }></Route>
+      <Route path="/admin/products" element={<ProtectedRoute><Products/></ProtectedRoute>}/>
+      <Route path="/admin/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>   
+     
     </Routes>
+    </ContextCreate.Provider>
+   
     <ToastContainer/>
     </>
   );

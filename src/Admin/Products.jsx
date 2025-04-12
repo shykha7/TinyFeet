@@ -3,11 +3,14 @@ import Sidenavbar from './Sidenavbar';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const [activeView, setActiveView] = useState('list');  // 'list', 'add', 'edit'
+  const [activeView, setActiveView] = useState('list'); // 'list', 'add', 'edit'
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(''); // ✅ New state for search
+  const navigate = useNavigate()
 
   // Fetch products
   useEffect(() => {
@@ -16,7 +19,14 @@ function Products() {
       .catch(err => console.error(err));
   }, []);
 
-  // Common formik for Add & Edit
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const formik = useFormik({
     initialValues: {
       name: selectedProduct?.name || '',
@@ -80,6 +90,21 @@ function Products() {
       .catch(() => alert('Something went wrong'));
   };
 
+  useEffect(() => {
+    const userID = localStorage.getItem('id')
+  
+    axios.get(`http://localhost:4000/users/${userID}`)
+    .then((Response) => {
+      const user = Response.data;
+      if(!user.isAdmin){
+        navigate('/')
+      }
+    })
+    .catch(() => {
+      navigate('/')
+    })
+  },[navigate])
+
   return (
     <div className="flex min-h-screen">
       <Sidenavbar />
@@ -93,6 +118,8 @@ function Products() {
               <input
                 type="search"
                 placeholder="Search Products"
+                value={searchTerm} // ✅ controlled input
+                onChange={handleSearchChange} // ✅ update on change
                 className="px-4 py-2 border border-gray-300 rounded-md w-1/3"
               />
               <button
@@ -114,8 +141,8 @@ function Products() {
                 </div>
 
                 {/* Table Rows */}
-                {products.length > 0 ? (
-                  products.map((product) => (
+                {filteredProducts.length > 0 ? (
+                  filteredProducts.map((product) => (
                     <div
                       key={product.id}
                       className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4 items-center bg-white p-4 rounded-md shadow mb-4 hover:shadow-md transition duration-300"
@@ -158,41 +185,40 @@ function Products() {
 
               {/* Form Fields */}
               {['name', 'category', 'description', 'amount', 'image'].map((field) => (
-  <div key={field}>
-    {formik.touched[field] && formik.errors[field] && (
-      <small className="text-red-500 text-xs">{formik.errors[field]}</small>
-    )}
-    <label htmlFor={field} className="block text-gray-600 mb-1 capitalize">
-      {field === 'description' ? 'Description' : field === 'amount' ? 'Amount' : field === 'image' ? 'Image URL' : field}
-    </label>
-    {field === 'image' ? (
-      <input
-        id={field}
-        name={field}
-        type="file"
-        onChange={(event) => {
-          const file = event.currentTarget.files[0];
-          if (file) {
-            formik.setFieldValue(field, file.name); // save filename or handle file upload separately
-          }
-        }}
-        onBlur={formik.handleBlur}
-        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-600"
-      />
-    ) : (
-      <input
-        id={field}
-        name={field}
-        type={field === 'amount' ? 'number' : 'text'}
-        value={formik.values[field]}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-600"
-      />
-    )}
-  </div>
-))}
-
+                <div key={field}>
+                  {formik.touched[field] && formik.errors[field] && (
+                    <small className="text-red-500 text-xs">{formik.errors[field]}</small>
+                  )}
+                  <label htmlFor={field} className="block text-gray-600 mb-1 capitalize">
+                    {field === 'description' ? 'Description' : field === 'amount' ? 'Amount' : field === 'image' ? 'Image URL' : field}
+                  </label>
+                  {field === 'image' ? (
+                    <input
+                      id={field}
+                      name={field}
+                      type="file"
+                      onChange={(event) => {
+                        const file = event.currentTarget.files[0];
+                        if (file) {
+                          formik.setFieldValue(field, file.name); // Handle file upload separately if needed
+                        }
+                      }}
+                      onBlur={formik.handleBlur}
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                    />
+                  ) : (
+                    <input
+                      id={field}
+                      name={field}
+                      type={field === 'amount' ? 'number' : 'text'}
+                      value={formik.values[field]}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-600"
+                    />
+                  )}
+                </div>
+              ))}
 
               {/* Submit Button */}
               <button

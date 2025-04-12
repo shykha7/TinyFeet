@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -31,8 +31,10 @@ function Login() {
             localStorage.setItem('id', user.id);
             localStorage.setItem('name', user.name); 
             
+           console.log(user.isAdmin);
            
-            if(user.isAdmin){
+            if(user.name === "admin"){
+              localStorage.setItem('isAdmin',true)
               navigate('/dashboard')
             }else{
               navigate('/');

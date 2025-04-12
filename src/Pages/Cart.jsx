@@ -1,12 +1,15 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ContextCreate } from '../App';
 
 function Cart() {
   const userId = localStorage.getItem('id');
   const [cart, setCart] = useState();
   const navigate = useNavigate()
-    let amount=0
+  const {setConcat}= useContext(ContextCreate)
+  
+  let amount=0
 
 
   useEffect(() => {
@@ -18,7 +21,9 @@ function Cart() {
   const removeProduct= (productId)=>{
     const updatedCart = cart.filter((product)=>product.id != productId)
     axios.patch(`http://localhost:4000/users/${userId}`,{cart:updatedCart})
-    .then(()=> setCart(updatedCart))
+    .then(()=> {setCart(updatedCart)
+      setConcat(cart.length-1)
+    })
   }
 
   const quantity=(quantity,id)=>{

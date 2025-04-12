@@ -1,7 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { ContextCreate } from '../App';
+
 
 
 function Navigating() {
@@ -12,6 +14,8 @@ function Navigating() {
   const navigate = useNavigate()
   const [count,setCount]=useState(0)
   const [found,setfound]=useState([])
+  const {setConcat}=useContext(ContextCreate)
+  
 
 
 
@@ -39,7 +43,9 @@ function Navigating() {
       {
       cart:updatedcart
       })
-      .then(()=>setCount(count+1), toast.success("Added to Cart"))
+      .then(()=>{setCount(count+1), 
+      setConcat((prev)=>prev+1)
+      toast.success("Added to Cart")})
       .catch(()=>{toast.error('Error adding product to the cart')})
     }
     else{
@@ -62,8 +68,8 @@ function Navigating() {
       {product&&
         <div
           key={product.id}
-          className="w-full max-w-6xl p-6 bg-white rounded-lg shadow-xl flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 ">
-          
+          className="w-full h-screen max-w-6xl p-6 bg-white rounded-lg shadow-xl flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 ">
+           
           <div className="w-full md:w-1/2 flex justify-center items-center">
             <img
               src={product.image_url}
