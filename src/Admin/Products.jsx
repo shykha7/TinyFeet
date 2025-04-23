@@ -12,9 +12,9 @@ function Products() {
   const [searchTerm, setSearchTerm] = useState(''); // ✅ New state for search
   const navigate = useNavigate()
 
-  // Fetch products
+ 
   useEffect(() => {
-    axios.get('http://localhost:4000/products')
+    axios.get('https://db-d0r9.onrender.com/products')
       .then(res => setProducts(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -44,7 +44,7 @@ function Products() {
     }),
     onSubmit: (values) => {
       if (activeView === 'add') {
-        axios.post(`http://localhost:4000/products`, {
+        axios.post(`https://db-d0r9.onrender.com/products`, {
           name: values.name,
           description: values.description,
           price: values.amount,
@@ -58,7 +58,7 @@ function Products() {
           })
           .catch(() => alert('Something went wrong'));
       } else if (activeView === 'edit' && selectedProduct) {
-        axios.put(`http://localhost:4000/products/${selectedProduct.id}`, {
+        axios.put(`https://db-d0r9.onrender.com/products/${selectedProduct.id}`, {
           name: values.name,
           description: values.description,
           price: values.amount,
@@ -76,13 +76,13 @@ function Products() {
   });
 
   const refreshProducts = () => {
-    axios.get('http://localhost:4000/products')
+    axios.get('https://db-d0r9.onrender.com/products')
       .then(res => setProducts(res.data))
       .catch(err => console.error(err));
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:4000/products/${id}`)
+    axios.delete(`https://db-d0r9.onrender.com/products/${id}`)
       .then(() => {
         alert('Product deleted');
         refreshProducts();
@@ -93,7 +93,7 @@ function Products() {
   useEffect(() => {
     const userID = localStorage.getItem('id')
   
-    axios.get(`http://localhost:4000/users/${userID}`)
+    axios.get(`https://db-d0r9.onrender.com/users/${userID}`)
     .then((Response) => {
       const user = Response.data;
       if(!user.isAdmin){
@@ -118,8 +118,8 @@ function Products() {
               <input
                 type="search"
                 placeholder="Search Products"
-                value={searchTerm} // ✅ controlled input
-                onChange={handleSearchChange} // ✅ update on change
+                value={searchTerm} 
+                onChange={handleSearchChange} 
                 className="px-4 py-2 border border-gray-300 rounded-md w-1/3"
               />
               <button
@@ -132,7 +132,7 @@ function Products() {
 
             <div className="flex justify-center w-full p-4">
               <div className="w-full max-w-5xl">
-                {/* Table Header */}
+               
                 <div className="hidden md:grid grid-cols-4 gap-4 text-gray-700 font-semibold bg-white p-4 rounded-md shadow mb-4">
                   <div>Name</div>
                   <div>Category</div>
@@ -140,7 +140,7 @@ function Products() {
                   <div>Delete</div>
                 </div>
 
-                {/* Table Rows */}
+                
                 {filteredProducts.length > 0 ? (
                   filteredProducts.map((product) => (
                     <div
@@ -200,7 +200,7 @@ function Products() {
                       onChange={(event) => {
                         const file = event.currentTarget.files[0];
                         if (file) {
-                          formik.setFieldValue(field, file.name); // Handle file upload separately if needed
+                          formik.setFieldValue(field, file.name); 
                         }
                       }}
                       onBlur={formik.handleBlur}

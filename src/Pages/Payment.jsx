@@ -20,11 +20,11 @@ function Payment() {
     useEffect(()=>{
         axios
       
-        .get(`http://localhost:4000/users/${userId}`)
+        .get(`https://db-d0r9.onrender.com/users/${userId}`)
         .then((res)=>setCart(res.data.cart))
         if(id!== 'null'){
             axios
-            .get(`http://localhost:4000/products/${id}`)
+            .get(`https://db-d0r9.onrender.com/products/${id}`)
             .then((res)=>setProduct(res.data))
         }
     },[id,userId ])
@@ -32,7 +32,7 @@ function Payment() {
 
     const clearCart = ()=>{
         const updatedCart = cart.filter((product)=>product.id !== id)
-        axios.patch(`http://localhost:4000/users/${userId}`,{
+        axios.patch(`https://db-d0r9.onrender.com/users/${userId}`,{
             cart : id === 'null' ? [] : updatedCart
         })
     }
@@ -60,7 +60,7 @@ function Payment() {
         onSubmit: ({resetForm})=>{
             
  
-              axios.post("http://localhost:4000/orderhistory",{
+              axios.post("https://db-d0r9.onrender.com/orderhistory",{
                 userId : userId,
                 items: id === 'null' ? cart : [product],
                 price : id === 'null' ? price : product.price

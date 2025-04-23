@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Orderhistory = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const userId = localStorage.getItem('id');
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoading(true); 
     axios
-      .get(`http://localhost:4000/orderhistory?userId=${userId}`)
+      .get(`https://db-d0r9.onrender.com/orderhistory?userId=${userId}`)
       .then((res) => {
         setOrders(res.data);
         setLoading(false); 
@@ -22,6 +25,7 @@ const Orderhistory = () => {
 
   return (
     <div className="min-h-screen p-6">
+      <span><ArrowLeft className="text-amber-500" onClick={()=>navigate('/')}/></span>
       <h2 className="text-3xl font-bold text-amber-400 text-center mb-6">
         Your Order History 📦
       </h2>

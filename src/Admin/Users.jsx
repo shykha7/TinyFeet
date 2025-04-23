@@ -9,7 +9,7 @@ function Users() {
   const navigate = useNavigate();
 
   const handleToggleStatus = (userId, currentStatus) => {
-    axios.patch(`http://localhost:4000/users/${userId}`, { status: !currentStatus })
+    axios.patch(`https://db-d0r9.onrender.com/users/${userId}`, { status: !currentStatus })
       .then(() => {
         setUsers(prevUsers =>
           prevUsers.map(user =>
@@ -21,7 +21,7 @@ function Users() {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/users`)
+    axios.get(`https://db-d0r9.onrender.com/users`)
       .then(res => setUsers(res.data))
       .catch(error => console.log('Something went wrong', error));
   }, []);
@@ -36,7 +36,7 @@ function Users() {
   useEffect(() => {
     const userID = localStorage.getItem('id')
   
-    axios.get(`http://localhost:4000/users/${userID}`)
+    axios.get(`https://db-d0r9.onrender.com/users/${userID}`)
     .then((Response) => {
       const user = Response.data;
       if(!user.isAdmin){

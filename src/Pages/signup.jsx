@@ -36,7 +36,7 @@ const SignUp = () => {
     onSubmit: (values) => {
       // Handle form submission
       axios
-        .post('http://localhost:4000/users', {
+        .post('https://db-d0r9.onrender.com/users', {
           name: values.name,
           email: values.email,
           password: values.password,

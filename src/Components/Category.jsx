@@ -5,7 +5,7 @@ function Category() {
   const navigator = useNavigate();
   
   return (
-    <div className="bg-amber-50 p-6">
+    <div className="p-6">
       <div className="text-5xl font-semibold text-center text-amber-600 mb-16">
         CATEGORY
       </div>

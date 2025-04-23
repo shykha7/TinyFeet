@@ -10,14 +10,14 @@ import { useNavigate } from "react-router-dom";
      
       useEffect(()=>{
         axios
-        .get('http://localhost:4000/products?_page=1&_limit=4')
+        .get('https://db-d0r9.onrender.com/products?_page=1&_limit=4')
         .then((respone)=>{setProducts(respone.data)})
         .catch((error)=>console.log("error found")
         )
       },[])
 
   return (
-    <div className="bg-amber-50 min-h-screen flex items-center justify-center p-6">
+    <div className=" min-h-screen flex items-center justify-center p-6">
      
       <div className="container mx-auto">
      

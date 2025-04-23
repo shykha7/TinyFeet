@@ -14,13 +14,13 @@ function Cart() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/users/${userId}`)
+      .get(`https://db-d0r9.onrender.com/users/${userId}`)
       .then((response) => setCart(response.data.cart));
   }, [userId]);
 
   const removeProduct= (productId)=>{
     const updatedCart = cart.filter((product)=>product.id != productId)
-    axios.patch(`http://localhost:4000/users/${userId}`,{cart:updatedCart})
+    axios.patch(`https://db-d0r9.onrender.com/users/${userId}`,{cart:updatedCart})
     .then(()=> {setCart(updatedCart)
       setConcat(cart.length-1)
     })
@@ -33,7 +33,7 @@ function Cart() {
         }
         return product
     })
-    axios.patch(`http://localhost:4000/users/${userId}`,{cart:updatedCart})
+    axios.patch(`https://db-d0r9.onrender.com/users/${userId}`,{cart:updatedCart})
     .then(()=> setCart(updatedCart))
   }
  cart? amount = cart.reduce((acc,product)=>acc+product.quantity*product.price,0):null
@@ -92,7 +92,7 @@ function Cart() {
       </div>
 
      
-      <div className="fixed bottom-10 right-10 bg-white shadow-lg p-6 rounded-lg w-72">
+      <div className="right-10 bg-white shadow-lg p-6 rounded-lg w-72">
         <div className="flex justify-between text-lg font-semibold mb-4">
           <span>Total</span>
           <span>${Math.ceil(amount)}</span>

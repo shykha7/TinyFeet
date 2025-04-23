@@ -12,30 +12,17 @@ function Dashboard() {
 
   useEffect(() => {
    
-    axios.get('http://localhost:4000/products')
+    axios.get('https://db-d0r9.onrender.com/products')
       .then(res => setProducts(res.data))
       .catch(err => console.log('Error fetching products', err));
 
     
-    axios.get('http://localhost:4000/users')
+    axios.get('https://db-d0r9.onrender.com/users')
       .then(res => setUsers(res.data))
       .catch(err => console.log('Error fetching users', err));
   }, []);
 
-useEffect(() => {
-  const userID = localStorage.getItem('id')
 
-  axios.get(`http://localhost:4000/users/${userID}`)
-  .then((Response) => {
-    const user = Response.data;
-    if(!user.isAdmin){
-      navigate('/')
-    }
-  })
-  .catch(() => {
-    navigate('/')
-  })
-},[navigate])
 
   const clothingCount = products.filter(p => p.category === 'clothing').length;
   const accessoriesCount = products.filter(p => p.category === 'kids accessories').length;

@@ -34,7 +34,7 @@ const ProviderValue = {conCart,setConcat}
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/payment/:id" element={<Payment/>}></Route>
       <Route path="/orderhistory" element={<Orderhistory/>}></Route>
-      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute> }></Route>
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute> }/>
       <Route path="/admin/products" element={<ProtectedRoute><Products/></ProtectedRoute>}/>
       <Route path="/admin/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>   
      
